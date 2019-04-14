@@ -36,7 +36,7 @@ export class ListCategoryComponent implements OnInit {
   editCategory(category: Category): void {
     localStorage.removeItem('editCategoryId');
     localStorage.setItem('editCategoryId', category.productCategoryId.toString());
-    this.router.navigate(['edit-category']);
+    this.router.navigate(['ui/categories/edit-category']);
 
   }
 

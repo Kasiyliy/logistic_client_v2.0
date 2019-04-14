@@ -8,8 +8,8 @@ import {routerTransition} from '../../../../router.animations';
   animations: [routerTransition()]
 })
 export class ShopComponent implements OnInit {
-  products: [] = []
-  categories: [] = []
+  products: [] = [];
+  categories: [] = [];
   constructor() {
   }
 

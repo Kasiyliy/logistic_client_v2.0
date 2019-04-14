@@ -6,11 +6,13 @@ import {FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {AddCategoryComponent} from './add-category/add-category.component';
 import {ListCategoryComponent} from './list-category/list-category.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
     AddCategoryComponent,
-    ListCategoryComponent
+    ListCategoryComponent,
+    EditCategoryComponent
   ],
   imports: [
     CommonModule,

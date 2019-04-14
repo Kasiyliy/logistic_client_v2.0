@@ -1,0 +1,54 @@
+<div class="my-account-area ptb-30" [@routerTransition]>
+
+  <div class="container">
+    <div class="row">
+
+<div class="col-lg-12" >
+  <h5>Изменить категорию товаров</h5>
+  <div class="login-form-wrapper">
+    <form action="#" class="ho-form ho-form-boxed " [formGroup]="editFormCategory" (ngSubmit)= " onSubmit() " >
+      <div class="ho-form-inner">
+        <div class="single-input single-input-half">
+          <label for="addInfo">Инфо категории</label>
+          <input type="text" formControlName="addInfo" id="addInfo">
+
+        </div>
+
+        <div class="single-input single-input-half">
+          <label for="categoryNameEn">Наименование компании en*</label>
+          <input formControlName="categoryNameEn" type="text" id="categoryNameEn">
+
+
+        </div>
+        <div class="single-input single-input-half">
+          <label for="categoryNameRu">Наименование компании ru*</label>
+          <input formControlName="categoryNameRu" type="text" id="categoryNameRu">
+
+        </div>
+        <div class="single-input single-input-half">
+          <label for="categoryNameKk">Наименование компании kz*</label>
+          <input formControlName="categoryNameKk" type="text"  id="categoryNameKk">
+
+        </div>
+
+
+
+        <div class="single-input">
+          <button   class="btn btn-success">
+            <span>Изменить</span>
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+</div>
+</div>

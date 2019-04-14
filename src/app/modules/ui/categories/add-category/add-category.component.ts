@@ -35,7 +35,7 @@ export class AddCategoryComponent implements OnInit {
     console.log(category);
     this.categoryForm.reset();
     this.categoryService.add(category);
-    this.router.navigate(['profile']);
+    this.router.navigate(['ui/categories']);
   }
 
   ngOnInit() {
