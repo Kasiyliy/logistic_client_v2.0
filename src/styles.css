@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/css/bootstrap.min.css";
+@import "assets/css/custom.css";
+@import "assets/css/plugins.css";
+@import "assets/css/style.css";
+@import '~ngx-toastr/toastr.css';
+@import "~ngx-smart-modal/ngx-smart-modal.css";
+
+/* You can add global styles to this file, and also import other style files */

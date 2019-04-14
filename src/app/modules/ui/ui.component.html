@@ -1,0 +1,54 @@
+<div [@routerTransition]>
+
+
+  <div class="breadcrumb-area bg-grey">
+    <div class="container">
+      <div class="ho-breadcrumb">
+        <ul>
+          <li><a routerLink="/home">Главная</a></li>
+          <li>Мой Аккаунт</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--// Breadcrumb Area -->
+  <main class="page-content">
+
+    <!-- Account Page Area -->
+    <div class="account-page-area ptb-30">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3">
+            <ul class="myaccount-tab-trigger">
+              <li class="nav-item">
+                <a class="nav-link color-white" [routerLink]="['/ui/categories']">Категории</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link color-white">Подкатегории</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link color-white">Товары</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link color-white" [routerLink]="['/ui/profile']">Аккаунт</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-9">
+            <div class="tab-content">
+              <div>
+                <div class="myaccount-dashboard">
+                  <router-outlet></router-outlet>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+</div>

@@ -1,0 +1,53 @@
+<!-- My Account Page -->
+<div class="my-account-area ptb-30" [@routerTransition]>
+  <div class="container">
+    <div class="row">
+
+
+      <!-- Register Form -->
+      <div class="col-lg-12">
+        <h5>ВХОД</h5>
+        <div class="login-form-wrapper">
+          <form action="#" class="ho-form ho-form-boxed" [formGroup]="loginForm">
+            <div class="ho-form-inner">
+              <div class="single-input single-input-half">
+                <label for="username">Логин *</label>
+                <input type="text" formControlName="username" id="username">
+              </div>
+              <div class="text-danger" *ngIf="loginForm.controls['username'].errors?.required && !loginForm.controls['username'].pristine">
+                необходимо ввести логин
+              </div>
+              <div class="single-input single-input-half">
+                <label for="password">Пароль *</label>
+                <input type="password" formControlName="password" id="password">
+              </div>
+              <div class="text-danger" *ngIf="loginForm.controls['password'].errors?.required && !loginForm.controls['password'].pristine">
+                необходимо ввести пароль
+              </div>
+              <div class="single-input">
+                <button [disabled]="!loginForm.valid" (click)="login()"
+                        [ngClass]="{'disabled' : !loginForm.valid}" class="btn btn-success">
+                  <span>Войти</span>
+                </button>
+
+                <div class="checkbox-input">
+                  <input type="checkbox" name="login-form-remember" id="login-form-remember">
+                  <label for="login-form-remember">Запомни меня</label>
+                </div>
+              </div>
+              <div class="single-input">
+                <a href="#">Забыли пароль?</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--// Registr Form -->
+
+
+
+    </div>
+  </div>
+</div>
+<!--// My Account Page -->
+

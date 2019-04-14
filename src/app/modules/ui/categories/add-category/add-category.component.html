@@ -1,0 +1,53 @@
+<div class="my-account-area ptb-30" [@routerTransition]>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12">
+        <h5>Добавления категории товаров</h5>
+        <div class="login-form-wrapper">
+          <form action="#" class="ho-form ho-form-boxed " [formGroup]="categoryForm" >
+            <div class="ho-form-inner">
+              <div class="single-input single-input-half">
+                <label for="addInfo">Инфо категории</label>
+                <input type="text" formControlName="addInfo" id="addInfo">
+                <div class="text-danger" *ngIf="categoryForm.controls['addInfo'].errors?.required && !categoryForm.controls['addInfo'].pristine">
+                  необходимо ввести инфо                </div>
+              </div>
+
+              <div class="single-input single-input-half">
+                <label for="categoryNameEn">Наименование компании en*</label>
+                <input formControlName="categoryNameEn" type="text" id="categoryNameEn">
+                <div class="text-danger" *ngIf="categoryForm.controls['categoryNameEn'].errors?.required && !categoryForm.controls['categoryNameEn'].pristine">
+                  необходимо ввести наименование                </div>
+
+              </div>
+              <div class="single-input single-input-half">
+                <label for="categoryNameRu">Наименование компании ru*</label>
+                <input formControlName="categoryNameRu" type="text" id="categoryNameRu">
+                <div class="text-danger" *ngIf="categoryForm.controls['categoryNameRu'].errors?.required && !categoryForm.controls['categoryNameRu'].pristine">
+                  необходимо ввести наименование                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="categoryNameKk">Наименование компании kz*</label>
+                <input formControlName="categoryNameKk" type="text"  id="categoryNameKk">
+                <div class="text-danger" *ngIf="categoryForm.controls['categoryNameKk'].errors?.required && !categoryForm.controls['categoryNameKk'].pristine">
+                  необходимо ввести наименование                </div>
+              </div>
+
+
+
+              <div class="single-input">
+                <button [disabled]="!categoryForm.valid" (click)="addCategory()"
+                        [ngClass]="{'disabled' : !categoryForm.valid}" class="btn btn-success">
+                  <span>Добавить</span>
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

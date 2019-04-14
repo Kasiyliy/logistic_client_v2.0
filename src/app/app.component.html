@@ -1,20 +1,180 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header class="header">
 
+  <!-- Header Top Area -->
+  <div class="header-top bg-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-7 col-sm-7 col-12">
+          <p class="header-welcomemsg" >Добро пожаловать на сайт логистической компании <span>"Global Logistics"</span>!</p>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-12">
+          <div class="header-langcurr">
+            <div class="select-currency">
+              <button class="select-currency-current">USD 378.73</button>
+              <ul class="select-currency-list dropdown-list">
+                <li><a href="#">RUB 5.74</a></li>
+                <li><a href="#">EUR 428.87</a></li>
+              </ul>
+            </div>
+            <div class="select-language">
+              <button class="select-language-current"><img src="/assets/images/ru.png" alt="us icon">Рус</button>
+              <ul class="select-language-list dropdown-list">
+                <li><a href="#"><img src="/assets/images/kk.png" alt="kk icon">Қаз</a></li>
+                <li><a href="#"><img src="/assets/images/us.png" alt="us icon">Eng</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// Header Top Area -->
+
+  <!-- Header Middle Area -->
+  <div class="header-middle bg-theme">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-3 col-md-6 col-sm-6 order-1 order-lg-1" >
+          <a routerLink="home" class="header-logo">
+            <img src="/assets/images/logo_1.png" alt="logo">
+          </a>
+        </div>
+        <div class="col-lg-6 col-12 order-3 order-lg-2">
+          <form action="#" class="header-searchbox">
+            <select  (change)= "navigateTo($event.target.value)">
+              <option value="category" >Все категории</option>
+              <option value="1">Мода</option>
+              <option value="2">Техника</option>
+              <option value="3">Компьютер</option>
+              <option value="4">Одежда</option>
+            </select>
+            <input type="text" placeholder="Введите свой поисковый ключ ...">
+            <button type="submit"><i class="lnr lnr-magnifier"></i></button>
+          </form>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 order-2 order-lg-3">
+          <div class="header-icons">
+            <div class="header-account">
+              <button class="header-accountbox-trigger"><span class="lnr lnr-user"></span>Мой Аккаунт<i class="ion ion-ios-arrow-down"></i></button>
+              <ul class="header-accountbox dropdown-list" *ngIf="!authService.authorized.value">
+                <li>
+                  <a [routerLink]="['auth/login']">Вход</a>
+                </li>
+                <li>
+                  <a [routerLink]="['auth/register']">Регистрация</a>
+                </li>
+
+              </ul>
+              <ul class="header-accountbox dropdown-list" *ngIf="authService.authorized.value">
+                <li >
+                  <a [routerLink]="['auth/login']" (click)="logout()">Выход</a>
+                </li>
+              </ul>
+            </div>
+            <div class="header-cart">
+              <a class="header-carticon" href="/"><i class="lnr lnr-cart"></i><span class="count">2</span></a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// Header Middle Area -->
+
+  <!-- Header Bottom Area -->
+  <div class="header-bottom bg-theme">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-10 d-none d-lg-block">
+
+
+          <!-- Navigation -->
+          <nav class="ho-navigation">
+            <ul>
+              <li ><a [routerLink]="['/front']">Главная</a></li>
+              <li class="dropdown-holder">
+                <a>Сервисы</a>
+                <ul class="hodropdown">
+                  <li><a routerLink="list-shipper">Доставщики</a></li>
+                  <li><a routerLink="location">Список стран</a></li>
+                  <li><a routerLink="list-region">Список областей</a></li>
+                  <li><a routerLink="air">Список районов</a></li>
+                  <li><a routerLink="storage/management">Управление складскими помещениями</a></li>
+
+                  <li><a routerLink="transfer">Перевозчик жидких грузов</a></li>
+
+
+                </ul>
+              </li>
+
+
+              <li><a routerLink="payment">Оплата и доставка</a></li>
+              <li><a [routerLink]="['front/shop']">Магазин</a></li>
+
+
+              <li>
+                <a [routerLink]="['/front/contact']"> Контакты</a>
+              </li>
+              <li *ngIf="authService.authorized.value">
+                <a [routerLink]="['/ui']"> Профиль</a>
+              </li>
+            </ul>
+          </nav>
+          <!--// Navigation -->
+
+        </div>
+        <div class="col-lg-2">
+          <div class="header-contactinfo">
+            <i class="flaticon-support"></i>
+            <span>Телефон:</span>
+            <b>+77071230022</b>
+          </div>
+        </div>
+        <div class="col-12 d-block d-lg-none">
+          <div class="mobile-menu clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// Header Bottom Area -->
+
+</header>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+
+<!-- Newsletter Area -->
+<div class="ho-section newsletter-area bg-grey ptb-50" id="footer">
+  <div class="container">
+    <div class="newsletter">
+      <div class="newsletter-title">
+        <h2>Подписывайтесь на нашу <span>новостную рассылку!</span></h2>
+
+      </div>
+      <div class="newsletter-content">
+        <form id="mc-form" class="newsletter-form">
+          <input id="mc-email" type="email" autocomplete="off" placeholder="введите ваш email...">
+          <button id="mc-submit" type="submit">Подписываться</button>
+        </form>
+        <!-- mailchimp-alerts start -->
+        <div class="mailchimp-alerts text-centre">
+          <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+          <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+          <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+        </div><!-- mailchimp-alerts end -->
+      </div>
+      <div class="newsletter-socialicons socialicons socialicons-radial">
+        <ul>
+          <li><a href="#"><i class="ion ion-logo-facebook"></i></a></li>
+          <li><a href="#"><i class="ion ion-logo-twitter"></i></a></li>
+          <li><a href="#"><i class="ion ion-logo-youtube"></i></a></li>
+          <li><a href="#"><i class="ion ion-logo-google"></i></a></li>
+          <li><a href="#"><i class="ion ion-logo-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

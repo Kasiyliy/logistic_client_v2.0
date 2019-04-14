@@ -1,0 +1,230 @@
+
+<!-- My Account Page -->
+<div class="my-account-area ptb-30" [@routerTransition]>
+
+  <div class="container">
+    <div class="row">
+      <div class="m-1">
+
+        <button class="btn m-1"  [ngClass]="{'btn-primary' : isCompany , 'btn-outline-primary' : !isCompany}" (click)="isCompany = true">Юр. лицо</button>
+
+        <button class="btn m-1" [ngClass]="{'btn-primary' : !isCompany , 'btn-outline-primary' : isCompany}" (click)="isCompany = false">Физ. лицо</button>
+      </div>
+
+      <div class="col-lg-12" *ngIf="isCompany">
+        <h5>РЕГИСТРАЦИЯ ЮРИДИЧЕСКИХ ЛИЦ</h5>
+        <div class="login-form-wrapper">
+          <form action="#" class="ho-form ho-form-boxed " [formGroup]="companyForm">
+            <div class="ho-form-inner">
+              <div class="single-input single-input-half">
+                <label for="sellerCompanyBin">БИН компании *</label>
+                <input type="text" formControlName="sellerCompanyBin" id="sellerCompanyBin">
+                <div class="text-danger" *ngIf="companyForm.controls['sellerCompanyBin'].errors?.required && !companyForm.controls['sellerCompanyBin'].pristine">
+                  необходимо ввести БИН
+                </div>
+                <div class="text-danger" *ngIf="companyForm.controls['sellerCompanyBin'].errors?.pattern">
+                  размер БИН 12
+                </div>
+              </div>
+
+
+              <div class="single-input single-input-half">
+                <label for="sellerCompanyPhone">Рабочий телефон *</label>
+                <input formControlName="sellerCompanyPhone" type="text" id="sellerCompanyPhone">
+                <div class="text-danger" *ngIf="companyForm.controls['sellerCompanyPhone'].errors?.required && !companyForm.controls['sellerCompanyPhone'].pristine">
+                  необходимо ввести рабочий телефон
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="sellerCompanyMobilePhone">Мобильный телефон *</label>
+                <input formControlName="sellerCompanyMobilePhone" type="text" id="sellerCompanyMobilePhone">
+                <div class="text-danger" *ngIf="companyForm.controls['sellerCompanyMobilePhone'].errors?.required && !companyForm.controls['sellerCompanyMobilePhone'].pristine">
+                  необходимо ввести моб телефон
+                </div>
+              </div>
+
+              <div class="single-input single-input-half">
+                <label for="username">Логин компании *</label>
+                <input formControlName="username" type="text" name="login_company" id="username">
+                <div class="text-danger" *ngIf="companyForm.controls['username'].errors?.required && !companyForm.controls['username'].pristine">
+                  необходимо ввести логин
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="sellerCompanyNameKk">Наименование компании kz*</label>
+                <input formControlName="sellerCompanyNameKk" type="text" id="sellerCompanyNameKk">
+                <div class="text-danger" *ngIf="companyForm.controls['sellerCompanyNameKk'].errors?.required && !companyForm.controls['sellerCompanyNameKk'].pristine">
+                  необходимо ввести наименование
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="sellerCompanyNameRu">Наименование компании ru*</label>
+                <input formControlName="sellerCompanyNameRu" type="text" id="sellerCompanyNameRu">
+                <div class="text-danger" *ngIf="companyForm.controls['sellerCompanyNameRu'].errors?.required && !companyForm.controls['sellerCompanyNameRu'].pristine">
+                  необходимо ввести наименование
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="sellerCompanyNameEn">Наименование компании en*</label>
+                <input formControlName="sellerCompanyNameEn" type="text"  id="sellerCompanyNameEn">
+                <div class="text-danger" *ngIf="companyForm.controls['sellerCompanyNameEn'].errors?.required && !companyForm.controls['sellerCompanyNameEn'].pristine">
+                  необходимо ввести наименование
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="sellerCompanyEmail">Email почта *</label>
+                <input formControlName="sellerCompanyEmail" type="text" name="sellerCompanyEmail" id="sellerCompanyEmail">
+                <div class="text-danger" *ngIf="companyForm.controls['sellerCompanyEmail'].errors?.required && !companyForm.controls['sellerCompanyEmail'].pristine">
+                  необходимо ввести почту
+                </div>
+                <div class="text-danger" *ngIf="companyForm.controls['sellerCompanyEmail'].errors?.email && !companyForm.controls['sellerCompanyEmail'].pristine">
+                  Поле для email
+                </div>
+              </div>
+
+              <div class="single-input single-input-half">
+                <label for="password">Пароль компании *</label>
+                <input formControlName="password" type="password" name="password" id="password">
+                <div class="text-danger" *ngIf="companyForm.controls['password'].errors?.required && !companyForm.controls['password'].pristine">
+                  необходимо ввести пароль
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="repassword">Подтверждение пароля *</label>
+                <input formControlName="repassword" type="password" id="repassword">
+                <div class="text-danger" *ngIf="companyForm.controls['repassword'].errors?.required && !companyForm.controls['repassword'].pristine">
+                  необходимо подтверждать пароль
+                </div>
+                <div class="text-danger" *ngIf="companyForm.controls['repassword'].errors?.mustMatch && !companyForm.controls['repassword'].pristine">
+                  Пароли должны совпадать
+                </div>
+              </div>
+
+
+              <div class="single-input">
+                <button [disabled]="!companyForm.valid" (click)="addCompany()"
+                        [ngClass]="{'disabled' : !companyForm.valid}" class="btn btn-success">
+                  <span>Регистрация</span>
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="col-lg-12" *ngIf="!isCompany">
+        <h5>РЕГИСТРАЦИЯ ФИЗИЧЕСКИХ ЛИЦ</h5>
+        <div class="login-form-wrapper">
+          <form action="#" class="ho-form ho-form-boxed" [formGroup]="customerForm">
+            <div class="ho-form-inner">
+              <div class="single-input single-input-half">
+                <label for="addInfo">Инфо клиента *</label>
+                <input type="text" formControlName="addInfo"  id="addInfo">
+                <div class="text-danger" *ngIf="customerForm.controls['addInfo'].errors?.required && !customerForm.controls['addInfo'].pristine">
+                  необходимо ввести инфо                </div>
+              </div>
+
+              <div class="single-input single-input-half">
+                <label for="customerNameKk">Наименование клиента kz*</label>
+                <input formControlName="customerNameKk" type="text" id="customerNameKk">
+                <div class="text-danger" *ngIf="customerForm.controls['customerNameKk'].errors?.required && !customerForm.controls['customerNameKk'].pristine">
+                  необходимо ввести наименование                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="customerNameRu">Наименование клиента ru*</label>
+                <input formControlName="customerNameRu" type="text" id="customerNameRu">
+                <div class="text-danger" *ngIf="customerForm.controls['customerNameRu'].errors?.required && !customerForm.controls['customerNameRu'].pristine">
+                  необходимо ввести наименование                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="customerNameEn">Наименование клиента en*</label>
+                <input formControlName="customerNameEn" type="text"  id="customerNameEn">
+                <div *ngIf="customerForm.controls['customerNameEn'].errors?.required && !customerForm.controls['customerNameEn'].pristine">
+                  необходимо ввести наименование                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="email">Email почта *</label>
+                <input formControlName="email" type="email" name="email" id="email">
+                <div  class="text-danger" *ngIf="customerForm.controls['email'].errors?.required && !customerForm.controls['email'].pristine">
+                  необходимо ввести почту                </div>
+                <div class="text-danger" *ngIf="customerForm.controls['email'].errors?.email && !customerForm.controls['email'].pristine">
+                  должны ввести почту
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="iinOrBin">ИИН клиента *</label>
+                <input type="text" formControlName="iinOrBin" id="iinOrBin">
+                <div class="text-danger" *ngIf="customerForm.controls['iinOrBin'].errors?.required && !customerForm.controls['iinOrBin'].pristine">
+                  необходимо ввести пароль                </div>
+                <div class="text-danger" *ngIf="customerForm.controls['iinOrBin'].errors?.pattern && !customerForm.controls['iinOrBin'].pristine">
+                  размер ИИН 12
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="mobilePhone">Мобильный телефон *</label>
+                <input formControlName="mobilePhone" type="text" id="mobilePhone">
+                <div class="text-danger" *ngIf="customerForm.controls['mobilePhone'].errors?.required && !customerForm.controls['mobilePhone'].pristine">
+                  необходимо ввести пароль                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="phoneNumber">Домашний телефон *</label>
+                <input formControlName="phoneNumber" type="text" id="phoneNumber">
+                <div class="text-danger" *ngIf="customerForm.controls['phoneNumber'].errors?.required && !customerForm.controls['phoneNumber'].pristine">
+                  необходимо ввести пароль
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="username">Логин клиента *</label>
+                <input formControlName="username" type="text" name="login_company" id="username2">
+                <div class="text-danger" *ngIf="customerForm.controls['username'].errors?.required && !customerForm.controls['username'].pristine">
+                  необходимо ввести пароль
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="password">Пароль клиента *</label>
+                <input formControlName="password" type="password" name="password" id="password2">
+                <div class="text-danger" *ngIf="customerForm.controls['password'].errors?.required && !customerForm.controls['password'].pristine">
+                  необходимо ввести пароль
+                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="repassword">Подтверждение пароля *</label>
+                <input formControlName="repassword" type="password" id="repassword2">
+                <div class="text-danger" *ngIf="customerForm.controls['repassword'].errors?.required && !customerForm.controls['repassword'].pristine">
+                  необходимо подтверждать пароль
+                </div>
+                <div class="text-danger" *ngIf="customerForm.controls['repassword'].errors?.mustMatch && !customerForm.controls['repassword'].pristine">
+                  Пароли должны совпадать
+                </div>
+              </div>
+
+
+              <div class="single-input">
+
+                <!-- Button to Open the Modal -->
+                <button [disabled]="!customerForm.valid" (click)="checkOtp()"
+                        [ngClass]="{'disabled' : !customerForm.valid}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                  Проверить Номер
+                </button>
+              </div>
+              <ngx-smart-modal #myModal identifier="myModal">
+                <h1>Мы вам выслали код подтверждения мобильного телефона</h1>
+                <input [ngModel]="otp" type="number">
+                <button (click)="verifyOtp()">Send</button>
+              </ngx-smart-modal>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--// Registr Form -->
+
+
+
+    </div>
+  </div>
+</div>
+<!-- The Modal -->
+
+<!--// My Account Page -->

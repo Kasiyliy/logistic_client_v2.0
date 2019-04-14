@@ -1,0 +1,32 @@
+<div class="col-md-6" [@routerTransition]>
+  <h2> Категории</h2>
+  <button class="btn btn-primary" [routerLink]="['/ui/categories/add']"> Добавить  Категорию</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Инфо категории</th>
+      <th>Наименование EN</th>
+      <th>Наименование RU</th>
+      <th>Наименование KZ</th>
+      <th>Редактировать  </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let category of categories">
+      <td class="hidden">{{category.productCategoryId}}</td>
+      <td>{{category.addInfo}}</td>
+      <td>{{category.categoryName.en}}</td>
+      <td>{{category.categoryName.ru}}</td>
+      <td>{{category.categoryName.kk}}</td>
+      <td>
+        <div class='d-flex'>
+
+          <button class="btn btn-danger m-2" (click)= "deleteCategory(category)">Удалить</button>
+
+          <button class="btn btn-primary m-2"  (click)="editCategory(category)" > Изменить</button>
+        </div></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
