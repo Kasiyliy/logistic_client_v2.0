@@ -17,11 +17,7 @@ export class CategoryService {
   }
 
   public add(category: Category) {
-    this.http.post(environment.APIEndpoint + '/product/category/addJson', category, {responseType: 'text'}).subscribe(res => {
-      this.toastr.success(res);
-    }, err => {
-      this.toastr.error(err);
-    });
+    return this.http.post(environment.APIEndpoint + '/products/category/addJson', category, {responseType: 'text'});
   }
 
   public listCategories() {
@@ -29,19 +25,19 @@ export class CategoryService {
   }
 
   public getCategoryById(id: number) {
-    return this.http.get<Category>(environment.APIEndpoint + '/product/category/' + id);
+    return this.http.get<Category>(environment.APIEndpoint + '/products/category/' + id);
   }
 
   public deleteCategory(id: number) {
-    return this.http.delete(environment.APIEndpoint + '/product/category/' + id);
+    return this.http.delete(environment.APIEndpoint + '/products/category/' + id, {responseType: 'text'});
   }
 
   public deleteCategory2(id: number) {
-    return this.http.post(environment.APIEndpoint + '/product/category/' + id, {}, {params: {_method: 'delete'}});
+    return this.http.post(environment.APIEndpoint + '/products/category/' + id, {}, {params: {_method: 'delete'}});
   }
 
   public updateCategory(category: Category) {
-    return this.http.patch(environment.APIEndpoint + '/product/category/' + category.productCategoryId, category);
+    return this.http.patch(environment.APIEndpoint + '/products/category/' + category.productCategoryId, category,{responseType: 'text'});
   }
 
 

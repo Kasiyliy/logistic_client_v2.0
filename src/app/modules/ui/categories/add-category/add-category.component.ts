@@ -5,6 +5,8 @@ import {CategoryService} from '../../../../shared/services/category.service';
 import {Router} from '@angular/router';
 import {Category} from '../../../../shared/models/category';
 import {slideToLeft} from '../../../../router.animations';
+import {ToastrService} from 'ngx-toastr';
+import {NgxSmartModalService} from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-add-category',
@@ -16,8 +18,11 @@ export class AddCategoryComponent implements OnInit {
 
   categoryForm: FormGroup;
 
-  constructor(private http: HttpClient, private builder: FormBuilder,
-              private categoryService: CategoryService, private router: Router) {
+  constructor(private http: HttpClient,
+              private builder: FormBuilder,
+              private categoryService: CategoryService,
+              private toastrService: ToastrService,
+              private router: Router) {
     this.categoryForm = this.builder.group({
       addInfo: [null, Validators.required],
       categoryNameEn: [null, Validators.required],
@@ -34,8 +39,14 @@ export class AddCategoryComponent implements OnInit {
     category.categoryNameRu = this.categoryForm.get('categoryNameRu').value;
     console.log(category);
     this.categoryForm.reset();
-    this.categoryService.add(category);
-    this.router.navigate(['ui/categories']);
+    this.categoryService.add(category).subscribe(resp => {
+        this.toastrService.success('Категория добавлена!');
+        this.router.navigate(['ui/categories']);
+      },
+      err => {
+        this.toastrService.error('Произошла ошибка! Обратитесь к админимстратору портала!');
+      }
+    );
   }
 
   ngOnInit() {

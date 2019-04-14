@@ -22,11 +22,15 @@
       <td>
         <div class='d-flex'>
 
-          <button class="btn btn-danger m-2" (click)= "deleteCategory(category)">Удалить</button>
+          <button class="btn btn-danger m-2" (click)= "submitToDeleteCategory(category)">Удалить</button>
 
           <button class="btn btn-primary m-2"  (click)="editCategory(category)" > Изменить</button>
         </div></td>
     </tr>
     </tbody>
+    <ngx-smart-modal #myModal identifier="myModal">
+      <p>Вы уверены что хотите удалить?</p>
+      <button class="btn btn-danger" (click)="deleteCategory(deletingCategory)">Удалить</button>
+    </ngx-smart-modal>
   </table>
 </div>

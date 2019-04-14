@@ -1,0 +1,52 @@
+<div class="container-fluid" [@routerTransition]>
+  <h2> Продукты</h2>
+  <button class="btn btn-primary" (click)= "addProduct()" > Добавить  Продукт</button>
+  <table class="table table-striped table-responsive">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>ID категория продукта</th>
+      <th>Описание продукта</th>
+      <th>ID подкатегории</th>
+      <th>Наименование EN</th>
+      <th>Наименование KZ</th>
+      <th>Наименование RU</th>
+      <th>Компания </th>
+      <th>Цена</th>
+      <th>Размер</th>
+      <th>ВЕС </th>
+      <th>Производитель</th>
+      <th>Характеристика </th>
+      <th>Серийный номер </th>
+      <th>Уникальный номер </th>
+      <th>Редактировать </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+      <td class="hidden"></td>
+      <td>{{product.productCategoryId}}</td>
+      <td>{{product.productDescription}}</td>
+      <td>{{product.productSubcategoryId}}</td>
+      <td>{{product.productNameEn}}</td>
+      <td>{{product.productNameKk}}</td>
+      <td>{{product.productNameRu}}</td>
+      <td>{{product.sellerCompanyId}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.size}}</td>
+      <td>{{product.weight}}</td>
+      <td>{{product.manufacturer}}</td>
+      <td>{{product.specialCharacteristicId}}</td>
+      <td>{{product.serialNumber}}</td>
+      <td>{{product.uniqueIdNumber}}</td>
+      <td>
+        <div class='d-flex'>
+
+          <button class="btn btn-danger m-2"  (click)= "deleteProduct(product)" > Удалить</button>
+
+          <button class="btn btn-primary m-2"  (click)= "editProduct(product)" > Изменить</button>
+        </div></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

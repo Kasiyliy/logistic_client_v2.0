@@ -95,8 +95,14 @@ export class RegisterComponent implements OnInit {
     company.username = this.companyForm.get('username').value;
     company.sellerCompanyPhone = this.companyForm.get('sellerCompanyPhone').value;
     console.log(company);
-    this.companyForm.reset();
-    this.companyService.add(company);
+    this.companyService.add(company).subscribe(res => {
+      this.toastr.success(res);
+      if(res !== 'This username is already taken') {
+        this.companyForm.reset();
+      }
+    }, err => {
+      this.toastr.error(err);
+    });
   }
 
   addCustomer() {

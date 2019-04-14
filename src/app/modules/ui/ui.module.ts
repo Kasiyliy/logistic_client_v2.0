@@ -6,7 +6,7 @@ import { UiComponent } from './ui.component';
 
 @NgModule({
   declarations: [
-    UiComponent
+    UiComponent,
   ],
   imports: [
     CommonModule,

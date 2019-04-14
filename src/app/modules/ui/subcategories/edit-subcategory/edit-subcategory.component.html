@@ -1,0 +1,56 @@
+<div class="my-account-area ptb-30" [@routerTransition]>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12">
+        <h5>Изменение подкатегорий товаров</h5>
+        <div class="login-form-wrapper">
+          <form action="#" class="ho-form ho-form-boxed " [formGroup]="editFormSubCategory" (ngSubmit)=" onSubmit()">
+            <div class="ho-form-inner">
+              <div class="single-input single-input-half">
+                <label>Категории</label>
+                <select formControlName="productCategoryId">
+                  <option *ngFor="let category of categories"
+                          value="{{category.productCategoryId}}">{{category.categoryName.en}}</option>
+                </select>
+
+              </div>
+              <div class="single-input single-input-half">
+                <label for="subCategoryAddInfo">Инфо подкатегории</label>
+                <input type="text" formControlName="subCategoryAddInfo" id="subCategoryAddInfo">
+
+              </div>
+
+              <div class="single-input single-input-half">
+                <label for="subCategoryNameEn">Наименование компании en*</label>
+                <input formControlName="subCategoryNameEn" type="text" id="subCategoryNameEn">
+
+
+              </div>
+              <div class="single-input single-input-half">
+                <label for="subCategoryNameRu">Наименование компании ru*</label>
+                <input formControlName="subCategoryNameRu" type="text" id="subCategoryNameRu">
+
+              </div>
+              <div class="single-input single-input-half">
+                <label for="subCategoryNameKk">Наименование компании kz*</label>
+                <input formControlName="subCategoryNameKk" type="text" id="subCategoryNameKk">
+
+              </div>
+              <div class="single-input">
+
+                <button class="btn btn-success">
+                  <span>Изменить</span>
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

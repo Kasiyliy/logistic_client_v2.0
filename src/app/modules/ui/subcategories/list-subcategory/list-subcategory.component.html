@@ -1,0 +1,40 @@
+<div class="col-md-6" [@routerTransition]>
+  <h2> Подкатегории</h2>
+  <button class="btn btn-primary" [routerLink]="['/ui/subcategories/add']"> Добавить поддкатегорию</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>ID Категории</th>
+      <th>Инфо подкатегории</th>
+      <th>Наименование EN</th>
+      <th>Наименование RU</th>
+      <th>Наименование KZ</th>
+      <th>Редактировать</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let subcategory of subcategories">
+      <td class="hidden">{{subcategory.productSubcategoryId}}</td>
+      <td>{{subcategory.productCategoryId}}</td>
+      <td>{{subcategory.subCategoryAddInfo}}</td>
+      <td>{{subcategory.subcategoryName.en}}</td>
+      <td>{{subcategory.subcategoryName.ru}}</td>
+      <td>{{subcategory.subcategoryName.kk}}</td>
+
+      <td>
+        <div class='d-flex'>
+
+          <button class="btn btn-danger m-2" (click)="submitToDeleteCategory(subcategory)"> Удалить</button>
+
+          <button class="btn btn-primary m-2" (click)="editSubCategory(subcategory)"> Изменить</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+    <ngx-smart-modal #myModal identifier="myModal">
+      <p>Вы уверены что хотите удалить?</p>
+      <button class="btn btn-danger" (click)="deleteSubCategory(deletingSubcategory)">Удалить</button>
+    </ngx-smart-modal>
+  </table>
+</div>

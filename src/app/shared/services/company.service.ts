@@ -16,11 +16,7 @@ export class CompanyService {
   }
 
   public add(company: Company) {
-    this.http.post(environment.APIEndpoint + this.addUrl, company, {responseType: 'text'}).subscribe(res => {
-      this.toastr.success(res);
-    }, err => {
-      this.toastr.error(err);
-    });
+    return this.http.post(environment.APIEndpoint + this.addUrl, company, {responseType: 'text'});
   }
 
   public listCompanies() {

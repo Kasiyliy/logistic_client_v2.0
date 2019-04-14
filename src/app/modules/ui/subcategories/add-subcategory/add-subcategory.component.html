@@ -1,0 +1,67 @@
+<div class="my-account-area ptb-30" [@routerTransition]>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12" >
+        <h5>Добавления подкатегории товаров</h5>
+        <div class="login-form-wrapper">
+          <form action="#" class="ho-form ho-form-boxed " [formGroup]="subcategoryForm" >
+            <div class="ho-form-inner">
+              <div class="single-input single-input-half">
+                <label>Категории</label>
+                <select class="form-control" formControlName="productCategoryId" >
+                  <option *ngFor="let category of categories" value = "{{category.productCategoryId}}">{{category.categoryName.en}}</option>
+                </select>
+                <div class="text-danger" *ngIf="subcategoryForm.controls['productCategoryId'].errors?.required && !subcategoryForm.controls['productCategoryId'].pristine">
+                  необходимо ввести ID категории                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="subCategoryAddInfo">Инфо подкатегории</label>
+                <input type="text" formControlName="subCategoryAddInfo" id="subCategoryAddInfo">
+                <div class="text-danger" *ngIf="subcategoryForm.controls['subCategoryAddInfo'].errors?.required && !subcategoryForm.controls['subCategoryAddInfo'].pristine">
+                  необходимо ввести инфо                </div>
+              </div>
+
+              <div class="single-input single-input-half">
+                <label for="subCategoryNameEn">Наименование компании en*</label>
+                <input formControlName="subCategoryNameEn" type="text" id="subCategoryNameEn">
+                <div class="text-danger" *ngIf="subcategoryForm.controls['subCategoryNameEn'].errors?.required && !subcategoryForm.controls['subCategoryNameEn'].pristine">
+                  необходимо ввести наименование                </div>
+
+              </div>
+              <div class="single-input single-input-half">
+                <label for="subCategoryNameRu">Наименование компании ru*</label>
+                <input formControlName="subCategoryNameRu" type="text" id="subCategoryNameRu">
+                <div class="text-danger" *ngIf="subcategoryForm.controls['subCategoryNameRu'].errors?.required && !subcategoryForm.controls['subCategoryNameRu'].pristine">
+                  необходимо ввести наименование                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="subCategoryNameKk">Наименование компании kz*</label>
+                <input formControlName="subCategoryNameKk" type="text"  id="subCategoryNameKk">
+                <div class="text-danger" *ngIf="subcategoryForm.controls['subCategoryNameKk'].errors?.required && !subcategoryForm.controls['subCategoryNameKk'].pristine">
+                  необходимо ввести наименование                </div>
+              </div>
+
+
+
+              <div class="single-input">
+                <button [disabled]="!subcategoryForm.valid" (click)="addSubCategory()"
+                        [ngClass]="{'disabled' : !subcategoryForm.valid}" class="btn btn-success">
+                  <span>Добавить</span>
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>

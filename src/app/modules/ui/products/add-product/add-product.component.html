@@ -1,0 +1,127 @@
+<div class="my-account-area ptb-30" [@routerTransition]>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12" >
+        <h5>Добавления  товаров</h5>
+        <div class="login-form-wrapper">
+          <form action="#" class="ho-form ho-form-boxed " [formGroup]= "productForm" >
+            <div class="ho-form-inner">
+              <div class="single-input single-input-half">
+                <label>Категории</label>
+                <select formControlName="productCategoryId" >
+                  <option *ngFor="let category of categories" value = "{{category.productCategoryId}}">{{category.categoryName.en}}</option>
+                </select>
+                <div class="text-danger" *ngIf="productForm.controls['productCategoryId'].errors?.required && !productForm.controls['productCategoryId'].pristine">
+                  необходимо ввести ID категории                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="productDescription">Описание товара</label>
+                <input type="text" formControlName="productDescription" id="productDescription">
+                <div class="text-danger" *ngIf="productForm.controls['productDescription'].errors?.required && !productForm.controls['productDescription'].pristine">
+                  необходимо ввести описание                </div>
+              </div>
+
+              <div class="single-input single-input-half">
+                <label>Подкатегории</label>
+                <select formControlName="productSubcategoryId" >
+                  <option *ngFor="let subcategory of subcategories" value = "{{subcategory.productSubcategoryId}}">{{subcategory.subcategoryName.en}}</option>
+                </select>
+                <div class="text-danger" *ngIf="productForm.controls['productSubcategoryId'].errors?.required && !productForm.controls['productSubcategoryId'].pristine">
+                  необходимо ввести ID подкатегории               </div>
+
+              </div>
+              <div class="single-input single-input-half">
+                <label for="productNameEn">Наименование товара  en*</label>
+                <input formControlName="productNameEn" type="text" id="productNameEn">
+                <div class="text-danger" *ngIf="productForm.controls['productNameEn'].errors?.required && !productForm.controls['productNameEn'].pristine">
+                  необходимо ввести наименование                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="productNameKk">Наименование товара kz*</label>
+                <input formControlName="productNameKk" type="text"  id="productNameKk">
+                <div class="text-danger" *ngIf="productForm.controls['productNameKk'].errors?.required && !productForm.controls['productNameKk'].pristine">
+                  необходимо ввести наименование                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="productNameRu">Наименование товара ru*</label>
+                <input formControlName="productNameRu" type="text"  id="productNameRu">
+                <div class="text-danger" *ngIf="productForm.controls['productNameRu'].errors?.required && !productForm.controls['productNameRu'].pristine">
+                  необходимо ввести наименование                </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label>Компания</label>
+                <select formControlName="sellerCompanyId" >
+                  <option *ngFor="let company of companies" value = "{{company.sellerCompanyId}}">{{company.sellerCompanyName.en}}</option>
+                </select>
+                <div class="text-danger" *ngIf="productForm.controls['sellerCompanyId'].errors?.required && !productForm.controls['sellerCompanyId'].pristine">
+                  необходимо ввести компанию               </div>
+
+              </div>
+              <div class="single-input single-input-half">
+                <label for="price">Цена*</label>
+                <input formControlName="price" type="text"  id="price">
+                <div class="text-danger" *ngIf="productForm.controls['price'].errors?.required && !productForm.controls['price'].pristine">
+                  необходимо ввести цену           </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="size">Размер*</label>
+                <input formControlName="size" type="text"  id="size">
+                <div class="text-danger" *ngIf="productForm.controls['size'].errors?.required && !productForm.controls['size'].pristine">
+                  необходимо ввести размер               </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="weight">ВЕС*</label>
+                <input formControlName="weight" type="text"  id="weight">
+                <div class="text-danger" *ngIf="productForm.controls['weight'].errors?.required && !productForm.controls['weight'].pristine">
+                  необходимо ввести ВЕС               </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="manufacturer">Производитель*</label>
+                <input formControlName="manufacturer" type="text"  id="manufacturer">
+                <div class="text-danger" *ngIf="productForm.controls['manufacturer'].errors?.required && !productForm.controls['manufacturer'].pristine">
+                  необходимо ввести Производителя               </div>
+              </div>
+              <div class="single-input single-input-half">
+                <label for="specialCharacteristicId">Харатеристика*</label>
+                <input formControlName="specialCharacteristicId" type="text"  id="specialCharacteristicId">
+                <div class="text-danger" *ngIf="productForm.controls['specialCharacteristicId'].errors?.required && !productForm.controls['specialCharacteristicId'].pristine">
+                  необходимо ввести спец.харатеристика      </div>
+              </div>
+
+              <div class="single-input single-input-half">
+                <label for="serialNumber">Серийный номер*</label>
+                <input formControlName="serialNumber" type="text"  id="serialNumber">
+                <div class="text-danger" *ngIf="productForm.controls['serialNumber'].errors?.required && !productForm.controls['serialNumber'].pristine">
+                  необходимо ввести Серийный номер     </div>
+              </div>
+
+              <div class="single-input single-input-half">
+                <label for="uniqueIdNumber">Уникальный  номер*</label>
+                <input formControlName="uniqueIdNumber" type="text"  id="uniqueIdNumber">
+                <div class="text-danger" *ngIf="productForm.controls['uniqueIdNumber'].errors?.required && !productForm.controls['uniqueIdNumber'].pristine">
+                  необходимо ввести Уникальный номер     </div>
+              </div>
+
+
+              <div class="single-input">
+                <button [disabled]="!productForm.valid" (click)= "addProduct()"
+                        [ngClass]="{'disabled' : !productForm.valid}" class="btn btn-success">
+                  <span>Добавить</span>
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>

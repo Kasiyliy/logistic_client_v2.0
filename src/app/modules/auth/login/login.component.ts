@@ -31,15 +31,13 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.loginForm.get('username').value, this.loginForm.get('password').value).toPromise().then(resp => {
       if (resp === 'Неправильный логин или пароль' || resp === 'Incorrect username or password') {
-        this.toastrService.warning(resp);
+        this.toastrService.warning('Неправильный логин или пароль');
       } else {
         this.toastrService.success('Авторизовано');
         this.authService.authorized.next(true);
         localStorage.setItem(environment.apiToken, resp);
         this.router.navigate(['ui']);
       }
-
-
     }, err => {
       this.toastrService.error('Не удалось авторизоваться');
       console.log(err);

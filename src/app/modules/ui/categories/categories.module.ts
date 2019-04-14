@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
 import {AddCategoryComponent} from './add-category/add-category.component';
 import {ListCategoryComponent} from './list-category/list-category.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import {NgxSmartModalModule} from 'ngx-smart-modal';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
   imports: [
     CommonModule,
     CategoriesRoutingModule,
+    NgxSmartModalModule,
     FormsModule,
     ReactiveFormsModule,
   ],
