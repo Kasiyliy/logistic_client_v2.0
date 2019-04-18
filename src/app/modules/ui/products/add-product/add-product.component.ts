@@ -73,7 +73,7 @@ export class AddProductComponent implements OnInit {
     this.productForm.reset();
     this.productService.add(product).subscribe(res => {
       this.toastr.success(res);
-      this.router.navigate(['profile']);
+      this.router.navigate(['ui/products']);
     }, err => {
       this.toastr.error(err);
     });

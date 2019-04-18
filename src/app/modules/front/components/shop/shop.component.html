@@ -44,333 +44,35 @@
               <div class="row no-gutters">
 
 
-
-
-
-
-
-
-
-
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                  <!-- Single Product -->
-                  <article class="hoproduct">
-                    <div class="hoproduct-image">
-                      <a class="hoproduct-thumb" routerLink="/add-product">
-                        <img class="hoproduct-frontimage" src="assets/images/product-image-10.jpg"
-                             alt="product image">
-                        <img class="hoproduct-backimage" src="assets/images/product-image-11.jpg"
-                             alt="product image">
-                      </a>
-                      <ul class="hoproduct-actionbox">
-                        <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                        <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                        <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                      </ul>
-                      <ul class="hoproduct-flags">
-                        <li class="flag-pack">New</li>
-                        <li class="flag-discount">-15%</li>
-                      </ul>
-                    </div>
-                    <div class="hoproduct-content"  *ngFor="let product of products">
-                      <h5 class="hoproduct-title"><a href="product-details.html">
-                        {{product.productNameEn}}</a></h5>
-                      <div class="hoproduct-rattingbox">
-                        <div class="rattingbox">
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                        </div>
-                      </div>
-                      <div class="hoproduct-pricebox">
-                        <div class="pricebox">
-                          <del class="oldprice">$35.11</del>
-                          <span class="price">${{product.price}}</span>
-                        </div>
-                      </div>
-                      <p class="hoproduct-content-description">Canon's first 4K UHD
-                        Camcorder, the GX10 has a compact and portable design that delivers
-                        outstanding video quality with remarkable detail. With a
-                        combination of incredible features and functionality, the GX10.</p>
-                    </div>
-                  </article>
-                  <!--// Single Product -->
+                <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" [@routerTransition]>
+                  <mat-card class="card-picture" *ngFor="let product of products">
+                    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+                      <span fxFlex="80%">{{product.productNameEn}}</span> &nbsp;&nbsp;
+                      <span fxFlex="80%">{{product.productDescription}}</span>
+                      <button mat-icon-button (click)= "editProduct(product)">
+                      <mat-icon fxFlex="10%" >mode_edit</mat-icon>
+                      </button>
+                      <button mat-icon-button (click)= "submitToDeleteProduct(product)">
+                      <mat-icon fxFlex="10%">delete</mat-icon>
+                    </button>
+                    </mat-card-title>
+                     <ngx-smart-modal #myModal identifier="myModal">
+                      <p>Вы уверены что хотите удалить?</p>
+                      <button class="btn btn-danger" (click)=  "deleteProduct(deletingProduct)" >Удалить</button>
+                    </ngx-smart-modal>
+                  </mat-card>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                  <!-- Single Product -->
-                  <article class="hoproduct">
-                    <div class="hoproduct-image">
-                      <a class="hoproduct-thumb" href="product-details.html">
-                        <img class="hoproduct-frontimage" src="assets/images/product-image-7.jpg"
-                             alt="product image">
-                        <img class="hoproduct-backimage" src="assets/images/product-image-8.jpg"
-                             alt="product image">
-                      </a>
-                      <ul class="hoproduct-actionbox">
-                        <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                        <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                        <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                      </ul>
-                      <ul class="hoproduct-flags">
-                        <li class="flag-pack">New</li>
-                      </ul>
-                    </div>
-                    <div class="hoproduct-content">
-                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                        Wireless Over-Ear Headphones</a></h5>
-                      <div class="hoproduct-rattingbox">
-                        <div class="rattingbox">
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                        </div>
-                      </div>
-                      <div class="hoproduct-pricebox">
-                        <div class="pricebox">
-                          <del class="oldprice">$35.11</del>
-                          <span class="price">$34.11</span>
-                        </div>
-                      </div>
-                      <p class="hoproduct-content-description">Canon's first 4K UHD
-                        Camcorder, the GX10 has a compact and portable design that delivers
-                        outstanding video quality with remarkable detail. With a
-                        combination of incredible features and functionality, the GX10.</p>
-                    </div>
-                  </article>
-                  <!--// Single Product -->
-                </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                  <!-- Single Product -->
-                  <article class="hoproduct">
-                    <div class="hoproduct-image">
-                      <a class="hoproduct-thumb" href="product-details.html">
-                        <img class="hoproduct-frontimage" src="assets/images/product-image-4.jpg"
-                             alt="product image">
-                      </a>
-                      <ul class="hoproduct-actionbox">
-                        <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                        <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                        <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                      </ul>
-                      <ul class="hoproduct-flags">
-                        <li class="flag-pack">New</li>
-                        <li class="flag-discount">-15%</li>
-                      </ul>
-                    </div>
-                    <div class="hoproduct-content">
-                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                        Wireless Over-Ear Headphones</a></h5>
-                      <div class="hoproduct-rattingbox">
-                        <div class="rattingbox">
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                        </div>
-                      </div>
-                      <div class="hoproduct-pricebox">
-                        <div class="pricebox">
-                          <del class="oldprice">$35.11</del>
-                          <span class="price">$34.11</span>
-                        </div>
-                      </div>
-                      <p class="hoproduct-content-description">Canon's first 4K UHD
-                        Camcorder, the GX10 has a compact and portable design that delivers
-                        outstanding video quality with remarkable detail. With a
-                        combination of incredible features and functionality, the GX10.</p>
-                    </div>
-                  </article>
-                  <!--// Single Product -->
-                </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
 
-                  <!-- Single Product -->
-                  <article class="hoproduct">
-                    <div class="hoproduct-image">
-                      <a class="hoproduct-thumb" href="product-details.html">
-                        <img class="hoproduct-frontimage" src="assets/images/product-image-5.jpg"
-                             alt="product image">
-                      </a>
-                      <ul class="hoproduct-actionbox">
-                        <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                        <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                        <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                      </ul>
-                      <ul class="hoproduct-flags">
-                        <li class="flag-pack">New</li>
-                      </ul>
-                    </div>
-                    <div class="hoproduct-content">
-                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                        Wireless Over-Ear Headphones</a></h5>
-                      <div class="hoproduct-rattingbox">
-                        <div class="rattingbox">
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                        </div>
-                      </div>
-                      <div class="hoproduct-pricebox">
-                        <div class="pricebox">
-                          <del class="oldprice">$35.11</del>
-                          <span class="price">$34.11</span>
-                        </div>
-                      </div>
-                      <p class="hoproduct-content-description">Canon's first 4K UHD
-                        Camcorder, the GX10 has a compact and portable design that delivers
-                        outstanding video quality with remarkable detail. With a
-                        combination of incredible features and functionality, the GX10.</p>
-                    </div>
-                  </article>
-                  <!--// Single Product -->
-                </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                  <!-- Single Product -->
-                  <article class="hoproduct">
-                    <div class="hoproduct-image">
-                      <a class="hoproduct-thumb" href="product-details.html">
-                        <img class="hoproduct-frontimage" src="assets/images/product-image-15.jpg"
-                             alt="product image">
-                      </a>
-                      <ul class="hoproduct-actionbox">
-                        <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                        <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                        <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                      </ul>
-                      <ul class="hoproduct-flags">
-                        <li class="flag-new">new</li>
-                      </ul>
-                    </div>
-                    <div class="hoproduct-content">
-                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                        Wireless Over-Ear Headphones</a></h5>
-                      <div class="hoproduct-rattingbox">
-                        <div class="rattingbox">
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                        </div>
-                      </div>
-                      <div class="hoproduct-pricebox">
-                        <div class="pricebox">
-                          <del class="oldprice">$35.11</del>
-                          <span class="price">$34.11</span>
-                        </div>
-                      </div>
-                      <p class="hoproduct-content-description">Canon's first 4K UHD
-                        Camcorder, the GX10 has a compact and portable design that delivers
-                        outstanding video quality with remarkable detail. With a
-                        combination of incredible features and functionality, the GX10.</p>
-                    </div>
-                  </article>
-                  <!--// Single Product -->
-                </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                  <!-- Single Product -->
-                  <article class="hoproduct">
-                    <div class="hoproduct-image">
-                      <a class="hoproduct-thumb" href="product-details.html">
-                        <img class="hoproduct-frontimage" src="assets/images/product-image-12.jpg"
-                             alt="product image">
-                        <img class="hoproduct-backimage" src="assets/images/product-image-13.jpg"
-                             alt="product image">
-                      </a>
-                      <ul class="hoproduct-actionbox">
-                        <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                        <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                        <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                      </ul>
-                      <ul class="hoproduct-flags">
-                        <li class="flag-new">new</li>
-                      </ul>
-                    </div>
-                    <div class="hoproduct-content">
-                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                        Wireless Over-Ear Headphones</a></h5>
-                      <div class="hoproduct-rattingbox">
-                        <div class="rattingbox">
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                        </div>
-                      </div>
-                      <div class="hoproduct-pricebox">
-                        <div class="pricebox">
-                          <del class="oldprice">$35.11</del>
-                          <span class="price">$34.11</span>
-                        </div>
-                      </div>
-                      <p class="hoproduct-content-description">Canon's first 4K UHD
-                        Camcorder, the GX10 has a compact and portable design that delivers
-                        outstanding video quality with remarkable detail. With a
-                        combination of incredible features and functionality, the GX10.</p>
-                    </div>
-                  </article>
-                  <!--// Single Product -->
-                </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                  <!-- Single Product -->
-                  <article class="hoproduct">
-                    <div class="hoproduct-image">
-                      <a class="hoproduct-thumb" href="product-details.html">
-                        <img class="hoproduct-frontimage" src="assets/images/product-image-1.jpg"
-                             alt="product image">
-                        <img class="hoproduct-backimage" src="assets/images/product-image-22.jpg"
-                             alt="product image">
-                      </a>
-                      <ul class="hoproduct-actionbox">
-                        <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                        <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                        <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                      </ul>
-                      <ul class="hoproduct-flags">
-                        <li class="flag-pack">New</li>
-                        <li class="flag-discount">-15%</li>
-                      </ul>
-                    </div>
-                    <div class="hoproduct-content">
-                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                        Wireless Over-Ear Headphones</a></h5>
-                      <div class="hoproduct-rattingbox">
-                        <div class="rattingbox">
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                          <span class="active"><i class="ion ion-ios-star"></i></span>
-                        </div>
-                      </div>
-                      <div class="hoproduct-pricebox">
-                        <div class="pricebox">
-                          <del class="oldprice">$35.11</del>
-                          <span class="price">$34.11</span>
-                        </div>
-                      </div>
-                      <p class="hoproduct-content-description">Canon's first 4K UHD
-                        Camcorder, the GX10 has a compact and portable design that delivers
-                        outstanding video quality with remarkable detail. With a
-                        combination of incredible features and functionality, the GX10.</p>
-                    </div>
-                  </article>
-                  <!--// Single Product -->
-                </div>
+
+
+
+
               </div>
             </div>
 

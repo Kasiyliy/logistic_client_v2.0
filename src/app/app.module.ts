@@ -11,6 +11,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TokenInterceptor} from './shared/interceptors/token';
 import {ErrorInterceptor} from './shared/interceptors/error';
 import {NgxSmartModalModule} from 'ngx-smart-modal';
+import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,13 @@ import {NgxSmartModalModule} from 'ngx-smart-modal';
     ToastrModule.forRoot(),
     NgxSmartModalModule.forRoot(),
     AppRoutingModule,
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule
   ],
   providers: [
     FormBuilder,

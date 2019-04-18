@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {CategoryService} from '../../../../shared/services/category.service';
 import {SubcategoryService} from '../../../../shared/services/subcategory.service';
 import {ProductService} from '../../../../shared/services/product.service';
+import {NgxSmartModalService} from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-list-product',
@@ -19,9 +20,11 @@ export class ListProductComponent implements OnInit {
   products: Product[];
   subcategories: Subcategory[];
   categories: Category[];
+  deletingProduct: Product;
   constructor(private router: Router,
               private productService: ProductService ,
               private subcategoryService: SubcategoryService,
+              private ngxSmartModalService: NgxSmartModalService,
               private categoryService: CategoryService) { }
 
   ngOnInit() {
@@ -38,19 +41,23 @@ export class ListProductComponent implements OnInit {
 
 
   deleteProduct(product: Product): void {
-    if (window.confirm('Вы уверены, что хотите удалить?')) {
-      this.productService.deleteProduct(product.productId)
-        .subscribe( data => {
-          this.products = this.products.filter(p => p !== product);
-        });
-    }
+    this.productService.deleteProduct(product.productId)
+      .subscribe(data => {
+        this.products = this.products.filter(p => p !== product);
+        this.ngxSmartModalService.getModal('myModal').close();
+      });
   }
 
   editProduct(product: Product): void {
     localStorage.removeItem('editProductId');
     localStorage.setItem('editProductId', product.productId.toString());
-    this.router.navigate(['edit-product']);
+    this.router.navigate(['ui/products/edit']);
 
+  }
+
+  submitToDeleteProduct(product: Product): void {
+    this.deletingProduct = product;
+    this.ngxSmartModalService.getModal('myModal').open();
   }
 
 

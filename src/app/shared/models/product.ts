@@ -11,6 +11,7 @@ export class Product {
   productNameRu:	string;
   sellerCompanyId:	number;
   specialCharacteristicId:	number;
+  specialCharacteristicsId:	number;
   productSubcategoryId:	number;
   manufacturer: string;
   price: number;
