@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ProductService } from './../../../../shared/services/product.service';
 import { Product } from './../../../../shared/models/product';
 import {NgxSmartModalService} from 'ngx-smart-modal';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-shop',
@@ -25,18 +26,28 @@ export class ShopComponent implements OnInit {
   ngOnInit() {
     this.productService.listProducts()
       .subscribe(data => {
-        this.products = data;
+        this.products = data.map(p => {
+            let images = null;
+            if(p.photoUrlsList){
+              images = p.photoUrlsList.split(',');
+              p.photosArrayUrls = images.map( image => {
+              image = environment.APIEndpoint + '/product/uploads/' + image;
+              return image;
+            });
+            }
+            return p;
+        });
       });
 
     this.categoryService.listCategories().subscribe(data =>{
         this.categories = data;
     });
   }
+  
   editProduct(product: Product): void {
     localStorage.removeItem('editProductId');
     localStorage.setItem('editProductId', product.productId.toString());
-    this.router.navigate(['ui/products/edit']);
-
+    this.router.navigate(['/front/contact']);
   }
 
 

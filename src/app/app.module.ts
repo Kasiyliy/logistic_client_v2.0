@@ -13,6 +13,12 @@ import {ErrorInterceptor} from './shared/interceptors/error';
 import {NgxSmartModalModule} from 'ngx-smart-modal';
 import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ModalModule, TooltipModule, PopoverModule, ButtonsModule } from 'angular-bootstrap-md'
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +38,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgImageSliderModule,
+    NgbModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
+    ModalModule.forRoot(),
+    TooltipModule.forRoot(),
+    PopoverModule.forRoot(),
+    ButtonsModule.forRoot()
   ],
   providers: [
     FormBuilder,

@@ -19,7 +19,9 @@ export class Product {
   weight: number;
   uniqueIdNumber: string;
   serialNumber: number;
-
+  photoUrlsList: string;
+  photosArrayUrls: string[];
+  file: File;
   category: Category;
   subcategory: Subcategory;
   company: Company;

@@ -13,7 +13,7 @@ import {routerTransition} from '../../../router.animations';
   animations: [routerTransition()],
 })
 export class LoginComponent implements OnInit {
-
+  
   loginForm: FormGroup;
 
   constructor(private builder: FormBuilder, private authService: AuthService,

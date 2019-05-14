@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {routerTransition} from '../../../../router.animations';
+import { Product } from './../../../../shared/models/product';
+import {NgxSmartModalService} from 'ngx-smart-modal';
+import { ProductService } from './../../../../shared/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +13,9 @@ import {routerTransition} from '../../../../router.animations';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ngxSmartModalService: NgxSmartModalService,
+              private router: Router
+          ) { }
 
   ngOnInit() {
   }

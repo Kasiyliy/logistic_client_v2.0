@@ -84,9 +84,9 @@
                     необходимо ввести Производителя               </div>
                 </div>
                 <div class="single-input single-input-half">
-                    <label for="specialCharacteristicId">Харатеристика*</label>
-                    <input formControlName="specialCharacteristicId" type="text"  id="specialCharacteristicId">
-                    <div class="text-danger" *ngIf="editFormProduct.controls['specialCharacteristicId'].errors?.required && !editFormProduct.controls['specialCharacteristicId'].pristine">
+                    <label for="specialCharacteristicsId">Харатеристика*</label>
+                    <input formControlName="specialCharacteristicsId" type="text"  id="specialCharacteristicsId">
+                    <div class="text-danger" *ngIf="editFormProduct.controls['specialCharacteristicsId'].errors?.required && !editFormProduct.controls['specialCharacteristicsId'].pristine">
                       необходимо ввести спец.харатеристика      </div>
                   </div>
 
@@ -103,25 +103,32 @@
                     <div class="text-danger" *ngIf="editFormProduct.controls['uniqueIdNumber'].errors?.required && !editFormProduct.controls['uniqueIdNumber'].pristine">
                       необходимо ввести Уникальный номер     </div>
                   </div>
-
-
-                  <div class="single-input">
-
-                    <button   class="btn btn-success" >
+                       <div class="single-input">
+                       <button   class="btn btn-success" >
                       <span>Изменить</span>
                     </button>
                   </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <br>
+        <div class ="col-lg-12">
+            <h5>Добавление Фото</h5>
+            <form enctype="multipart/form-data"  action="#" [formGroup]= "addPhotoForm" class="ho-form ho-form-boxed " >
+            <div class="single-input single-input-half">
+            <label for="file">Фото  Продукта</label>
+            <input  #fileInput formControlName="file"   type="file"  id="file">
+          </div>
+          <br>
 
-      </div>
-    </form>
-  </div>
-</div>
-
-
-
-
-
-
+          <div class="single-input">
+              <button   class="btn btn-success" (click)= "addPhoto($event)" >
+             <span>Изменить</span>
+           </button>
+         </div>
+        </form>
+        </div>
 </div>
 </div>
 </div>

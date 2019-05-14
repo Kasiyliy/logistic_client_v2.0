@@ -1,0 +1,152 @@
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>eCommerce Product Detail</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+
+  <body>
+	
+	<div class="container" [@routerTransition] *ngIf="product">
+		<div class="card"  >
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-6">  
+						
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane" *ngFor="let image of product.photosArrayUrls,  let i = index" [ngClass] = "i == 1 ? 'active' : ''" id="pic-{{product.productId}}"  >
+                <img  [src]="image"/></div>
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs">
+						  <li class="active"  *ngFor="let image of product.photosArrayUrls"  ><a data-target="#pic-{{product.productId}}" data-toggle="tab"><img [src]="image" /></a></li>
+						</ul>
+						
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title">{{product.productNameEn}}</h3>
+						<div class="rating">
+							<div class="stars">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<span class="review-no">41 reviews</span>
+						</div>
+						<h4 class="price">Описание:<span>{{product.productDescription}}</span></h4>
+						<h4 class="price">ЦЕНА: <span>{{product.price}}</span></h4>
+            <h4 class="price">Производитель: <span>{{product.manufacturer}}</span></h4>
+						<h5 class="sizes">Размер:
+							<span class="size" data-toggle="tooltip" title="small">{{product.size}}</span>
+							<!-- <span class="size" data-toggle="tooltip" title="medium">m</span>
+							<span class="size" data-toggle="tooltip" title="large">l</span>
+							<span class="size" data-toggle="tooltip" title="xtra large">xl</span> -->
+						</h5>
+						<h5 class="colors">colors:
+							<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+							<span class="color green"></span>
+							<span class="color blue"></span>
+						</h5>
+						<div class="action">
+              <button class="btn btn-primary" type="button" (click)= "zakazBeru()">Добавить в Корзину</button>&nbsp;
+              <ngx-smart-modal #myModal identifier="myModal">
+                <h3><i class="fa fa-shopping-cart" style="font-size:30px ">Вы добавили в корзину</i></h3>
+                <button class="btn btn-danger" (click)="zakazJabu">Удалить</button>
+              </ngx-smart-modal>
+							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+						</div>
+					</div>
+				</div>
+      </div>
+      <h2>Написать Отзыв</h2>
+  <strong>Зарегистрируйся, оставляй отзывы о товаре, зарабатывай бонусы!</strong>
+  <form action="/action_page.php" class="was-validated">
+    <div class="form-group">
+      <label for="uname">ВАШЕ ИМЯ:</label>
+      <input type="text" class="form-control" id="uname"name="uname" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Пожалуйста, заполните это поле..</div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">ВАШ ОТЗЫВ:</label>
+      <textarea  rows="4" cols="50" class="form-control" id="feedback"  name="feedback" required></textarea>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Пожалуйста, заполните это поле..</div>
+    </div>
+    <div class="form-group " id="rating-ability-wrapper">
+      <label class="control-label" for="rating">
+        <span class="field-label-header">How would you rate your ability to use the computer and access internet?*</span><br>
+        <span class="field-label-info"></span>
+        <input type="hidden" id="selected_rating" name="selected_rating" value="" required="required">
+        </label>
+        <h2 class="bold rating-header" style="">
+        <span class="selected-rating">0</span><small> / 5</small>
+        </h2>
+        <button type="button" class="btnrating btn btn-default btn-lg" data-attr="1" id="rating-star-1">
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="btnrating btn btn-default btn-lg" data-attr="2" id="rating-star-2">
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="btnrating btn btn-default btn-lg" data-attr="3" id="rating-star-3">
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="btnrating btn btn-default btn-lg" data-attr="4" id="rating-star-4">
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="btnrating btn btn-default btn-lg" data-attr="5" id="rating-star-5">
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </button>
+    </div>
+    <button type="submit" class="btn btn-primary">ОТПРАВИТЬ</button>
+  </form>
+		</div>
+	</div>
+  </body>
+  <script>
+    	jQuery(document).ready(function($){
+	    
+      $(".btnrating").on('click',(function(e) {
+      
+      var previous_value = $("#selected_rating").val();
+      
+      var selected_value = $(this).attr("data-attr");
+      $("#selected_rating").val(selected_value);
+      
+      $(".selected-rating").empty();
+      $(".selected-rating").html(selected_value);
+      
+      for (i = 1; i <= selected_value; ++i) {
+      $("#rating-star-"+i).toggleClass('btn-warning');
+      $("#rating-star-"+i).toggleClass('btn-default');
+      }
+      
+      for (ix = 1; ix <= previous_value; ++ix) {
+      $("#rating-star-"+ix).toggleClass('btn-warning');
+      $("#rating-star-"+ix).toggleClass('btn-default');
+      }
+      
+      }));
+      
+        
+    });
+  </script>
+</html>

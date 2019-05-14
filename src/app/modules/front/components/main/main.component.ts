@@ -8,7 +8,6 @@ import {routerTransition} from '../../../../router.animations';
   animations: [routerTransition()],
 })
 export class MainComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
