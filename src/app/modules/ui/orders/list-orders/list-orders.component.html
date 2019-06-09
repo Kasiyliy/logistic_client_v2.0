@@ -1,0 +1,46 @@
+<div class="container-fluid" [@routerTransition]>
+  <h2> Заказы</h2>
+  <table class="table table-striped table-responsive">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Клиент</th>
+      <th>Cтатус доставки</th>
+      <th>Сумма Заказа</th>
+      <th>Дата</th>
+      <th>Цена продукта</th>
+      <th>Сумма Заказа</th>
+      <th>Продукт</th>
+      <th>Компания</th>
+      <th>Общая сумма</th>
+      <th>Цена за единицу</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders">
+      <td class="hidden">{{order.orderId}}</td>
+      <td>{{order.customerId}}</td>
+      <td>{{order.deliveringStatus}}</td>
+      <td>{{order.orderAmount}}</td>
+      <td>{{order.orderDate}}</td>
+      <td>{{order.productAmount}}</td>
+      <td>{{order.productCount}}</td>
+      <td>{{order.productId}}</td>
+      <td>{{order.sellerCompanyId}}</td>
+      <td>{{order.totalPrice}}</td>
+      <td>{{order.unitPrice}}</td>
+      <td>
+        <div class='d-flex'>
+
+          <button class="btn btn-danger m-2" (click)= "submitToDeleteOrder(order)">Удалить</button>
+
+          <button class="btn btn-primary m-2"  (click)="editCategory(category)" > Изменить</button>
+        </div></td>
+    </tr>
+    </tbody>
+    <ngx-smart-modal #myModal identifier="myModal">
+      <p>Вы уверены что хотите удалить?</p>
+      <button class="btn btn-danger" (click)="deleteOrder(deletingOrder)">Удалить</button>
+    </ngx-smart-modal>
+  </table>
+</div>

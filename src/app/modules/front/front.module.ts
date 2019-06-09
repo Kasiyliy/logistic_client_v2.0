@@ -9,8 +9,7 @@ import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFor
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {NgxSmartModalModule} from 'ngx-smart-modal';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { ModalModule, TooltipModule, PopoverModule, ButtonsModule } from 'angular-bootstrap-md';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,11 +30,8 @@ import { ModalModule, TooltipModule, PopoverModule, ButtonsModule } from 'angula
     FlexLayoutModule,
     NgxSmartModalModule,
     NgbModule.forRoot(),
-    MDBBootstrapModule.forRoot(),
-    ModalModule.forRoot(),
-    TooltipModule.forRoot(),
-    PopoverModule.forRoot(),
-    ButtonsModule.forRoot()
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class FrontModule { }

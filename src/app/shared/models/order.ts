@@ -2,6 +2,7 @@ import {Customer} from './customer';
 import { Product } from './product';
 import { Company } from './company';
 export class Order{
+    orderId: number;
     customerId: number;
     deliveringStatus: string;
     orderAmount	: number;

@@ -103,8 +103,13 @@ export class EditProductComponent implements OnInit {
     if (fi.files && fi.files[0]) {
       let fileToUpload = fi.files[0];
       this.productService.addPhoto(this.productId, fileToUpload).subscribe(res => {
+        this.toastr.success(res);
+        this.router.navigate(['front/shop']);
              this.addPhotoForm.reset();
-      });
+      },err => {
+        this.toastr.error(err);
+      }
+      );
     }
     
   }

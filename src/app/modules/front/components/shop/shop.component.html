@@ -37,19 +37,18 @@
               <span class="shop-filters-viewitemcount">Товары</span>
               <div class="shop-filters-sortby">
                 <b>Сортировать  по:</b>
-                <div class="select-sortby">
-                  <button class="select-sortby-current">Актуальность</button>
-                  <ul class="select-sortby-list dropdown-list">
-                    <li><a href="#">Relevance</a></li>
-                    <li><a href="#">Name, A-Z</a></li>
-                    <li><a href="#">Name, Z-A</a></li>
-                    <li><a href="#">Price, Hight-Low</a></li>
-                    <li><a href="#">Price, Low-High</a></li>
-                  </ul>
+                <div class="select-sortby">&nbsp;
+                  <select class="browser-default custom-select">
+                    <option selected>Не выбрано</option>
+                    <option value="1">A-Z</option>
+                    <option value="2">Z-A</option>
+                    <option value="3">По цене</option>
+                  </select>
                 </div>
               </div>
             </div>
-
+            
+            
             <div class="shop-page-products mt-30">
               <div  class="row no-gutters">
                   <div  class="col-lg-4 col-md-4 col-sm-6 col-12" *ngFor="let product of products">
@@ -74,15 +73,15 @@
                       </article>
                   </div>
               </div> </div>
+           
 
             <div class="cr-pagination pt-30">
-              <p>Showing 1-12 of 13 item(s)</p>
+            
               <ul>
                 <li><a href="shop-rightsidebar.html"><i class="ion ion-ios-arrow-back"></i>
-                  Previous</a></li>
+                  Предыдущий</a></li>
                 <li class="active"><a href="shop-rightsidebar.html">1</a></li>
-                <li><a href="shop-rightsidebar.html">2</a></li>
-                <li><a href="shop-rightsidebar.html">Next <i class="ion ion-ios-arrow-forward"></i></a></li>
+                <li><a href="shop-rightsidebar.html">Следующий <i class="ion ion-ios-arrow-forward"></i></a></li>
               </ul>
             </div>
 
@@ -93,30 +92,13 @@
               <div class="single-widget widget-categories">
                 <h5 class="widget-title">Все Категории</h5>
                 <ul *ngFor="let category of categories">
-                  <li><a href="shop-rightsidebar.html">{{category.categoryName.en}} <span>20</span></a></li>
+                  <li><a href="shop-rightsidebar.html">{{category.categoryName.en}} <span></span></a></li>
 
                 </ul>
               </div>
 
               <div class="shop-widgetbox mt-30">
-                <div class="single-widget widget-filters">
-                  <h5 class="widget-title">Фильтровать по Цене</h5>
-                  <div data-role="page">
-                 
-                  
-                    <div data-role="main" class="ui-content">
-                      <form method="post" action="/action_page_post.php">
-                        <div data-role="rangeslider">
-                          <label for="price-min">Price:</label>
-                          <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
-                          <label for="price-max">Price:</label>
-                          <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
-                        </div>
-                          <input type="submit" data-inline="true" value="Submit">
-                        </form>
-                    </div>
-                  </div> 
-                </div>
+                
                 <div class="single-widget widget-color">
                   <h5 class="widget-title">Выбрать по цвету</h5>
                   <ul>

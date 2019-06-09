@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 style="text-align: center">Столбцовая Диаграмма</h2>
+      <div style="display: block">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType">
+          </canvas>
+        </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+      <div class="col-12">
+        <h2 style="text-align: center">Круговая диаграмма</h2>
+        <div style="display: block">
+            <canvas baseChart
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType"></canvas>
+          </div>
+      </div>
+    </div>
+    <br>
+  <br>
+  <br>
+  <br>
+    <div class="row">
+        <div class="col-12">
+          <h2 style="text-align: center">Диаграмма Радар</h2>
+          <div style="display: block">
+              <canvas baseChart
+                      [datasets]="radarChartData"
+                      [labels]="radarChartLabels"
+                      [chartType]="radarChartType"></canvas>
+            </div>
+        </div>
+      </div>
+</div>

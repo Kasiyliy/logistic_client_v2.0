@@ -11,6 +11,8 @@ const routes: Routes = [
       {path: 'products', loadChildren: './products/products.module#ProductsModule'},
       {path: 'subcategories', loadChildren: './subcategories/subcategories.module#SubcategoriesModule'},
       {path: 'profile', loadChildren: './profile/profile.module#ProfileModule'},
+      {path: 'orders', loadChildren: './orders/orders.module#OrdersModule'},
+      {path: 'analysis', loadChildren: './analysis/analysis.module#AnalysisModule'},
     ]
   },
 
